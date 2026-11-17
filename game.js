@@ -232,8 +232,8 @@ document.addEventListener("keydown", e => {
   const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
   if (k === "Enter" || k === "Backspace" || /^[a-z]$/.test(k)) { e.preventDefault(); press(k); }
 });
-$("roomIn").onkeydown = e => e.key === "Enter" && joinByNumber();
-$("secretIn").onkeydown = e => e.key === "Enter" && setWord();
+$("roomIn").onkeydown = e => { if (e.key === "Enter") joinByNumber(); };
+$("secretIn").onkeydown = e => { if (e.key === "Enter") setWord(); };
 $("joinBtn").onclick = joinByNumber;
 $("randBtn").onclick = joinRandom;
 $("secretBtn").onclick = setWord;
